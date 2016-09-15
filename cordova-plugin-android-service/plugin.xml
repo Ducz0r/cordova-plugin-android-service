@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-android-message-service" version="1.0.0">
+    <name>Android Message Service</name>
+    <author>Luka Murn</author>
+    <description>
+        Cordova plugin that allows Cordova application to communicate with a native Android app via messaging service
+    </description>
+    <keywords>cordova,android,message,service,background,plugin</keywords>
+    <license>MIT</license>
+    <js-module src="www/android-message-service.js" name="Android Message Service">
+        <clobbers target="androidMessageService" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="ANDROID_MESSAGE_SERVICE_PLUGIN">
+                <param name="android-package" value="org.lmurn.cordova.AndroidMessageServicePlugin" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="org.lmurn.cordova.AndroidMessageService">
+                <intent-filter>
+                    <action android:name="org.lmurn.cordova.BindAndroidApp" />
+                </intent-filter>
+            </service>
+        </config-file>
+        <source-file src="src/org/lmurn/cordova/Messages.java" target-dir="src/org/lmurn/cordova" />
+        <source-file src="src/org/lmurn/cordova/PluginIncomingHandler.java" target-dir="src/org/lmurn/cordova" />
+        <source-file src="src/org/lmurn/cordova/PluginServiceConnection.java" target-dir="src/org/lmurn/cordova" />
+        <source-file src="src/org/lmurn/cordova/ServiceIncomingHandler.java" target-dir="src/org/lmurn/cordova" />
+        <source-file src="src/org/lmurn/cordova/AndroidMessageServicePlugin.java" target-dir="src/org/lmurn/cordova" />
+        <source-file src="src/org/lmurn/cordova/AndroidMessageService.java" target-dir="src/org/lmurn/cordova" />
+    </platform>
+</plugin>

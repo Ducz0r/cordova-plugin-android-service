@@ -1,0 +1,20 @@
+# Plugin binaries directory
+/cordova-plugin-android-service/bin/
+
+# Android binaries etc.
+/SampleAndroidApp/bin
+/SampleAndroidApp/*.apk
+/SampleAndroidApp/*.ap_
+/SampleAndroidApp/*.dex
+/SampleAndroidApp/bin/
+/SampleAndroidApp/gen/
+
+# Eclipse-related files & folders
+.checkstyle
+.classpath
+.project
+.settings
+project.properties
+
+# Java class files
+*.class
